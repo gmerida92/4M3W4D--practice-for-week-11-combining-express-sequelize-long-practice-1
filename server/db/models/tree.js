@@ -14,20 +14,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Tree.init({
-    tree: DataTypes.STRING,
-    location: DataTypes.STRING,
-    height_ft: {
-     type: DataTypes.FLOAT, 
-      validate: {
-        min: 0
-      }
-    
+    tree: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
     },
-    ground_circumference_ft: {
+    location: DataTypes.STRING,
+    heightFt: {
       type: DataTypes.FLOAT,
       validate: {
-        min: 0
-      }
+        min: 0,
+      },
+    },
+    groundCircumferenceFt: {
+      type: DataTypes.FLOAT,
+      validate: {
+        min: 0,
+      },
     }
   }, {
     sequelize,

@@ -11,24 +11,26 @@ module.exports = {
       tree: {
         type: Sequelize.STRING,
         allowNull : false,
-        unique : false
+        unique : true
       },
       location: {
         type: Sequelize.STRING
       },
-      height_ft: {
+      heightFt: {
         type: Sequelize.FLOAT
       },
-      ground_circumference_ft: {
+      groundCircumferenceFt: {
         type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
       }
     });
   },
